@@ -22,8 +22,16 @@ public class Enemigo : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Die() {
-        Instantiate(deathEffect, deathPoint.position, deathPoint.rotation);
+        GameObject deathEff = (GameObject)GameObject.Instantiate(deathEffect, deathPoint.position, deathPoint.rotation);
         Destroy(gameObject);
-		
-	}
+        
+        //validacion destroy del sprite del DeathEffect
+        UnityEditor.EditorApplication.delayCall += () =>
+        {
+            Destroy(deathEff);
+        };
+        
+    }
+
+   
 }

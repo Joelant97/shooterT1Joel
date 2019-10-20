@@ -130,7 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   deathPoint: {fileID: 4610492446074702}
-  deathEffect: {fileID: 1909313890304418, guid: 061c793b99007a74c90b0089ef03c744,
+  deathEffect: {fileID: 1245724224173068, guid: 061c793b99007a74c90b0089ef03c744,
     type: 2}
 --- !u!212 &212256500009507310
 SpriteRenderer:

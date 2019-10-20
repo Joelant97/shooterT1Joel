@@ -25,9 +25,16 @@ public class Bullet : MonoBehaviour {
         {
             enemigo.TakeDamage(damage);
         }
-        Instantiate(impactEffect, transform.position, transform.rotation);
 
+        GameObject impEff = (GameObject)GameObject.Instantiate(impactEffect, transform.position, transform.rotation);
+
+        //destroy object de la bala
         Destroy(gameObject);
+        //validacion espera un poco y luego destroy con el sprite del impacto
+        UnityEditor.EditorApplication.delayCall += () =>
+        {
+            Destroy(impEff);
+        };
     } 
 
 }
