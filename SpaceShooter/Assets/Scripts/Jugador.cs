@@ -11,7 +11,7 @@ public class Jugador : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        width = transform.localScale.x;
+        width = transform.localScale.y;
         speed = 5f;
 
     }
@@ -21,12 +21,13 @@ public class Jugador : MonoBehaviour {
     public void Init(bool isRightJugador)
     {
         Vector2 pos = Vector2.zero;
+        
 
         if (isRightJugador)
         {
-            //Jugador de la derecha
-            pos = new Vector2(GameManager.topRight.y, -4);
-            pos -= Vector2.right * transform.localScale.y;
+            //Jugador
+            pos = new Vector2(GameManager.topRight.x, -4);
+            pos -= Vector2.right * transform.localScale.x;
 
             input = "Jugador";
         }
@@ -41,11 +42,12 @@ public class Jugador : MonoBehaviour {
         //Mover Jugador
         float move = Input.GetAxis(input) * Time.deltaTime * speed;
 
-        if (transform.position.x > GameManager.topRight.x - width / 2 && move > 0)
+        if (transform.position.y > GameManager.topRight.y - width / 2 && move > 0)
         {
             move = 0;
         }
 
         transform.Translate(move * Vector2.right);
+        
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
     public Enemigo enemigo;
     public Jugador jugador;
+    public int numEnemigos = 3;
 
     public static Vector2 topRight;
 
@@ -16,16 +17,21 @@ public class GameManager : MonoBehaviour {
         Jugador jugador1 = Instantiate(jugador) as Jugador;
         jugador1.Init(true);
 
+        //Enemigo enemigo1 = Instantiate(enemigo) as Enemigo;
+
+        //clonar los enemigos en posiciones diferentes.
         Enemigo enemigo1 = Instantiate(enemigo) as Enemigo;
-        //Enemigo enemigo2 = Instantiate(enemigo) as Enemigo;
-        //Enemigo enemigo3 = Instantiate(enemigo) as Enemigo;
-        //Enemigo enemigo4 = Instantiate(enemigo) as Enemigo;
-        //Enemigo enemigo5 = Instantiate(enemigo) as Enemigo;
+        for (int i = 0; i < numEnemigos; ++i)
+        {
+            Enemigo go = Instantiate(enemigo1) as Enemigo;
+            go.transform.position = new Vector3(i *3,  2, 0);
+        }
 
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 }
