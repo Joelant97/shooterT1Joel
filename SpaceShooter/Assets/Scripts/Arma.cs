@@ -22,24 +22,7 @@ public class Arma : MonoBehaviour {
     {
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 
-        
-
-
-        /*RaycastHit2D hitInfo = Physics2D.Raycast(firePoint.position, firePoint.rotation, firePoint.up);
-
-        if (hitInfo) 
-        {
-            Enemigo enemigo = hitInfo.transform.GetComponent<Enemy>();
-            if (enemigo != null)
-            {
-                enemigo.TakeDamage(damage);            
-            }
-
-
-
-        }*/
     }
 
-   
 
 }

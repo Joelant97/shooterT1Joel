@@ -7,8 +7,31 @@ public class Enemigo : MonoBehaviour {
 
     public Transform deathPoint;
     public GameObject deathEffect;
-	// Use this for initialization
-	public void TakeDamage (int damage) {
+
+    public Transform firePoint;
+    public GameObject bulletPrefab;
+
+    // Use this for initialization (Inicio Auto Ataque):
+    void Start()
+    {
+        AutoAction();
+    }
+
+    void AutoAction() 
+    {
+        StartCoroutine("waitThreeSeconds");
+    }
+
+    IEnumerator waitThreeSeconds() 
+    {
+        yield return new WaitForSeconds(3);
+        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        AutoAction(); //loop para repetir disparo una y otra vez.
+    }
+    //Fin del auto Ataque.
+
+
+    public void TakeDamage (int damage) {
         health -= damage;
 
         //Daños o la salud es menor de 0 jugador muere.
