@@ -19,12 +19,13 @@ public class BulletEnemigo : MonoBehaviour {
     }
 
 
+    //Funcion envia daños al jugador.
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        Enemigo enemigo = hitInfo.GetComponent<Enemigo>();
-        if (enemigo != null)
+        Jugador jugador = hitInfo.GetComponent<Jugador>();
+        if (jugador != null)
         {
-            enemigo.TakeDamage(damage);
+            jugador.TakeDamage(damage);
         }
 
         GameObject impEff = (GameObject)GameObject.Instantiate(impactEffect, transform.position, transform.rotation);

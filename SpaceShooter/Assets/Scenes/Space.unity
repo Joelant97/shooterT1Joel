@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemigo: {fileID: 114559422185966248, guid: bda4e4526262785419581c8b1b835086, type: 2}
-  jugador: {fileID: 114121793581581200, guid: 977c4f140302802469ef6891c9cf4828, type: 2}
+  jugador: {fileID: 114587703448461992, guid: 977c4f140302802469ef6891c9cf4828, type: 2}
   numEnemigos: 3
 --- !u!4 &675815814
 Transform:

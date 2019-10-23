@@ -10,6 +10,7 @@ public class Enemigo : MonoBehaviour {
 
     public Transform firePoint;
     public GameObject bulletPrefab;
+    
 
     // Use this for initialization (Inicio Auto Ataque):
     void Start()
@@ -19,18 +20,20 @@ public class Enemigo : MonoBehaviour {
 
     void AutoAction() 
     {
-        StartCoroutine("waitThreeSeconds");
+        StartCoroutine("waitRandomSeconds");
     }
 
-    IEnumerator waitThreeSeconds() 
+    IEnumerator waitRandomSeconds() 
     {
-        yield return new WaitForSeconds(3);
+        int randomSecnd = Random.Range(1, 3);
+        yield return new WaitForSeconds(randomSecnd);
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         AutoAction(); //loop para repetir disparo una y otra vez.
     }
     //Fin del auto Ataque.
 
 
+    //Funcion evalua daños
     public void TakeDamage (int damage) {
         health -= damage;
 

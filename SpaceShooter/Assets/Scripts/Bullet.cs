@@ -17,7 +17,8 @@ public class Bullet : MonoBehaviour {
         rb.velocity = transform.up * speed;
 	}
 
-   
+
+    //Funcion envia daños al enemigo.
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
         Enemigo enemigo = hitInfo.GetComponent<Enemigo>();

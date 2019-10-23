@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Jugador : MonoBehaviour {
+    public int health = 100; //Vidas o Salud del Jugador.
+
+    public Transform deathPoint;
+    public GameObject deathEffect;
+
     [SerializeField]
     public float speed;
     float width;
@@ -49,5 +54,34 @@ public class Jugador : MonoBehaviour {
 
         transform.Translate(move * Vector2.right);
         
+    }
+
+
+    //Funcion evalua daños en el Jugador
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+
+        //Daños o la salud es menor de 0 jugador muere.
+        if (health <= 0)
+        {
+            Die();
+        }
+
+
+    }
+
+    // Update is called once per frame
+    void Die()
+    {
+        GameObject deathEff = (GameObject)GameObject.Instantiate(deathEffect, deathPoint.position, deathPoint.rotation);
+        Destroy(gameObject);
+
+        //validacion destroy del sprite del DeathEffect
+        UnityEditor.EditorApplication.delayCall += () =>
+        {
+            Destroy(deathEff);
+        };
+
     }
 }
