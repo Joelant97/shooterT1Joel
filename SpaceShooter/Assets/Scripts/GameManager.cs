@@ -9,9 +9,14 @@ public class GameManager : MonoBehaviour {
 
     public static Vector2 topRight;
 
+    public GameObject asteroidePrefab;
+    public GameObject meteoroPrefab;
+
     // Use this for initialization
     void Start () {
         topRight = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+
+        AutoAsteroide();
 
         //Instantiate(jugador);
         Jugador jugador1 = Instantiate(jugador) as Jugador;
@@ -27,6 +32,20 @@ public class GameManager : MonoBehaviour {
             go.transform.position = new Vector3(i *3,  2, 0);
         }
 
+    }
+    void AutoAsteroide()
+    {
+        StartCoroutine("waitRandSeconds");
+    }
+
+    IEnumerator waitRandSeconds()
+    {
+
+        int randomSecnd = Random.Range(1, 6);
+        yield return new WaitForSeconds(randomSecnd);
+        Instantiate(asteroidePrefab);
+        Instantiate(meteoroPrefab);
+        AutoAsteroide(); 
     }
 
 

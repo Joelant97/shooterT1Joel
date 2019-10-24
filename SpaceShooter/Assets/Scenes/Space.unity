@@ -224,6 +224,10 @@ MonoBehaviour:
   enemigo: {fileID: 114559422185966248, guid: bda4e4526262785419581c8b1b835086, type: 2}
   jugador: {fileID: 114587703448461992, guid: 977c4f140302802469ef6891c9cf4828, type: 2}
   numEnemigos: 3
+  asteroidePrefab: {fileID: 1631724248817686, guid: cdb97ee01a11a764bad820d43f8dc12a,
+    type: 2}
+  meteoroPrefab: {fileID: 1352675560597940, guid: ce5f16bc719ceca45a29ca76ab582327,
+    type: 2}
 --- !u!4 &675815814
 Transform:
   m_ObjectHideFlags: 0
