@@ -32,6 +32,14 @@ public class GameManager : MonoBehaviour {
             go.transform.position = new Vector3(i *3,  2, 0);
         }
 
+        if (enemigo == null)
+        {
+            Debug.Log("Has Ganado!");
+
+            Time.timeScale = 0;
+            enabled = false; 
+        }
+
     }
     void AutoAsteroide()
     {

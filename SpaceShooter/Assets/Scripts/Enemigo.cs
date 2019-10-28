@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemigo : MonoBehaviour {
-    public int health = 100;
+    public int healthEne = 90;
 
     public Transform deathPoint;
     public GameObject deathEffect;
@@ -35,10 +35,10 @@ public class Enemigo : MonoBehaviour {
 
     //Funcion evalua daños
     public void TakeDamage (int damage) {
-        health -= damage;
+        healthEne -= damage;
 
         //Daños o la salud es menor de 0 jugador muere.
-        if (health <= 0) 
+        if (healthEne <= 0) 
         {
             Die();
         }

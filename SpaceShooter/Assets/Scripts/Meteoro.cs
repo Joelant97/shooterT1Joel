@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class Meteoro : MonoBehaviour {
 
-    public float speed = 2F;
-    public int damage = 30;
+    public float speed = 3F;
+    public int damage = 5;
+    public int healthMet = 60;
+    public int restVidaMet = 5;
 
     public Rigidbody2D rigb;
     public GameObject impactEffect;
+
+    public GameObject deathEffect;
 
 
     // Use this for initialization
@@ -26,6 +30,7 @@ public class Meteoro : MonoBehaviour {
         if (jugador != null)
         {
             jugador.TakeDamage(damage);
+            Score.instance.RestJugadorVidas(restVidaMet);
 
             //Meteoro solo daña al jugador.
             GameObject impEff = (GameObject)GameObject.Instantiate(impactEffect, transform.position, transform.rotation);
@@ -40,5 +45,33 @@ public class Meteoro : MonoBehaviour {
         }
 
        
+    }
+
+
+    //Funcion evalua daños
+    public void TakeDamage (int damage) {
+        healthMet -= damage;
+
+        //Daños o la salud es menor de 0 muere.
+        if (healthMet <= 0) 
+        {
+            Die();
+        }
+
+
+	}
+
+    // Update is called once per frame
+    void Die()
+    {
+        GameObject deathEff = (GameObject)GameObject.Instantiate(deathEffect);
+        Destroy(gameObject);
+
+        //validacion destroy del sprite del DeathEffect
+        UnityEditor.EditorApplication.delayCall += () =>
+        {
+            Destroy(deathEff);
+        };
+
     }
 }

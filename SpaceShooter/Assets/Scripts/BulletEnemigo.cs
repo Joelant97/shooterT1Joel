@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class BulletEnemigo : MonoBehaviour {
 
-    public float speed = 10F;
-    public int damage = 30;
+    public float speed = 5F;
+    public int damage = 5;
+    public int restVidaEne = 5;
 
     public Rigidbody2D rigb;
     public GameObject impactEffect;
@@ -26,6 +27,7 @@ public class BulletEnemigo : MonoBehaviour {
         if (jugador != null)
         {
             jugador.TakeDamage(damage);
+            Score.instance.RestJugadorVidas(restVidaEne);
         }
 
         GameObject impEff = (GameObject)GameObject.Instantiate(impactEffect, transform.position, transform.rotation);

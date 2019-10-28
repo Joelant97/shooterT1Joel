@@ -107,9 +107,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  damage: 30
+  damage: 5
   rigb: {fileID: 50311836661218990}
   impactEffect: {fileID: 1695884016080640, guid: 7ecc83a82507b8f438a3a65972e267dc,
+    type: 2}
+  healthAst: 30
+  deathEffect: {fileID: 1245724224173068, guid: 061c793b99007a74c90b0089ef03c744,
     type: 2}
 --- !u!212 &212733136122263116
 SpriteRenderer:

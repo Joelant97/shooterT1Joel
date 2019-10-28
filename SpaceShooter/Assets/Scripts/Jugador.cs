@@ -61,11 +61,16 @@ public class Jugador : MonoBehaviour {
     public void TakeDamage(int damage)
     {
         health -= damage;
+        //Score.instance.RestJugadorVidas(); //Resta vidas
 
         //Daños o la salud es menor de 0 jugador muere.
         if (health <= 0)
         {
             Die();
+            Debug.Log("Has perdido!");
+
+            Time.timeScale = 0;
+            enabled = false;
         }
 
 
